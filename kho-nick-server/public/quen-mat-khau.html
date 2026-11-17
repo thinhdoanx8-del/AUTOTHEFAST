@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Khôi phục mật khẩu | Kho Nick</title>
+<meta name="robots" content="noindex,follow">
+<meta name="theme-color" content="#0b7a63">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<!--include:header-->
+<div class="wrap">
+  <main id="app">
+    <div class="narrow">
+      <section class="panel">
+        <div id="msg"></div>
+        
+        <!-- BƯỚC 1: NHẬP GMAIL -->
+        <div id="step-1" class="forgot-step">
+          <h1 class="h2">Khôi phục mật khẩu</h1>
+          <p style="color:var(--muted);margin-bottom:16px;font-size:14px;">Nhập địa chỉ Gmail đã đăng ký tài khoản Kho Nick. Chúng tôi sẽ gửi mã OTP để xác minh.</p>
+          <form id="form-step-1" novalidate>
+            <div class="field">
+              <label for="f-email">Địa chỉ Gmail</label>
+              <input id="f-email" type="email" autocomplete="email" required placeholder="name@gmail.com">
+            </div>
+            <button class="btn primary" style="width:100%" type="submit" id="btn-send-otp">Gửi mã OTP</button>
+          </form>
+          <p style="margin:14px 0 0;text-align:center;"><a href="/dang-nhap">Quay lại đăng nhập</a></p>
+        </div>
+
+        <!-- BƯỚC 2: XÁC THỰC OTP -->
+        <div id="step-2" class="forgot-step" style="display:none;">
+          <h1 class="h2">Xác thực Gmail</h1>
+          <p style="color:var(--muted);margin-bottom:16px;font-size:14px;">Mã OTP đã được gửi đến Gmail của bạn. Vui lòng kiểm tra hộp thư.</p>
+          <form id="form-step-2" novalidate>
+            <div class="field">
+              <label for="f-otp">Mã OTP (6 chữ số)</label>
+              <input id="f-otp" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" required style="letter-spacing:4px;font-size:18px;text-align:center;" placeholder="------">
+            </div>
+            <div id="otp-timer" style="font-size:13px;color:var(--muted);margin-bottom:12px;text-align:center;">Mã có hiệu lực trong 5 phút.</div>
+            <button class="btn primary" style="width:100%;margin-bottom:10px;" type="submit" id="btn-verify-otp">Xác nhận</button>
+            <button class="btn" style="width:100%;background:var(--card);color:var(--text);border:1px solid var(--border);" type="button" id="btn-resend-otp" disabled>Gửi lại mã OTP (60s)</button>
+          </form>
+          <p style="margin:14px 0 0;text-align:center;"><a href="/dang-nhap">Quay lại đăng nhập</a></p>
+        </div>
+
+        <!-- BƯỚC 3: ĐẶT LẠI MẬT KHẨU -->
+        <div id="step-3" class="forgot-step" style="display:none;">
+          <h1 class="h2">Tạo mật khẩu mới</h1>
+          <p style="color:var(--muted);margin-bottom:16px;font-size:14px;">Vui lòng nhập mật khẩu mới cho tài khoản của bạn.</p>
+          <form id="form-step-3" novalidate>
+            <div class="field">
+              <label for="f-newpass">Mật khẩu mới</label>
+              <input id="f-newpass" type="password" autocomplete="new-password" required>
+              <small>Tối thiểu 6 ký tự.</small>
+            </div>
+            <div class="field">
+              <label for="f-newpass2">Nhập lại mật khẩu mới</label>
+              <input id="f-newpass2" type="password" autocomplete="new-password" required>
+            </div>
+            <button class="btn primary" style="width:100%" type="submit" id="btn-reset">Đổi mật khẩu</button>
+          </form>
+        </div>
+
+      </section>
+    </div>
+  </main>
+  <!--include:footer-->
+</div>
+<script src="/js/common.js" defer></script>
+<script src="/js/auth.js" defer></script>
+</body>
+</html>

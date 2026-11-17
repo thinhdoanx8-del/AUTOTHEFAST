@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Đơn hàng | Kho Nick</title>
+<meta name="description" content="Tạo đơn buff hot Liên Quân và theo dõi trạng thái đơn hàng tại Kho Nick.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b7a63">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<!--include:header-->
+<div class="wrap">
+  <main id="app">
+    <div class="pagehead"><h1>Đơn hàng</h1><p id="stats" aria-live="polite"></p></div>
+
+    <div class="split">
+      <!-- Cột trái: tạo đơn -->
+      <section class="panel" aria-labelledby="create-title">
+        <span class="svc-tag">Dịch vụ: Buff hot Liên Quân</span>
+        <h2 id="create-title">Tạo đơn hàng</h2>
+        <p class="sub">Nhập Uid hoặc Tên Game, mỗi dòng một tài khoản. Giá đơn tính theo số like bạn nhập.</p>
+        <div id="msg" aria-live="polite"></div>
+        <div class="field"><label for="b-codes" class="sr">Uid hoặc Tên Game</label><textarea id="b-codes" rows="4" placeholder="Uid hoặc Tên Game"></textarea></div>
+        <div class="field"><label for="b-note" class="sr">Ghi chú</label><input id="b-note" maxlength="25" placeholder="Ghi chú (tối đa 25 ký tự)"></div>
+        <div class="rowline" id="disc-row" hidden>
+          <input id="b-disc" placeholder="MÃ GIẢM GIÁ (KHÔNG BẮT BUỘC)" aria-label="Mã giảm giá"><button class="btn" data-act="disc">Kiểm tra</button>
+        </div>
+        <div class="rowline">
+          <input id="b-likes" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="7" autocomplete="off" placeholder="Nhập số like" aria-label="Số like"><button class="btn primary" id="go" data-act="go">Tạo đơn</button>
+        </div>
+        <div id="sum"></div>
+        <details class="help">
+          <summary>Hướng dẫn nhập đơn</summary>
+          <h3>Cách nhập nhiều đơn hàng</h3>
+          <ul>
+            <li>Mỗi dòng nhập một Uid hoặc một Tên Game, tối đa 40 ký tự.</li>
+            <li>Số like chỉ nhập chữ số, tối thiểu <span data-cfg="min"></span>. Số like ở ô bên trên áp dụng cho mọi dòng, dòng nào muốn số khác thì ghi số like sau dấu |.</li>
+            <li>Giá: <span data-cfg="rate"></span> cho 1 like. Ví dụ nhập 2.000 like là <span data-cfg="example"></span>.</li>
+          </ul>
+          <pre>12881045611676785
+Tên Game
+Tên Game|5000</pre>
+          <h3>Lưu ý khi tạo đơn</h3>
+          <ul>
+            <li>Nếu có dòng sai định dạng, chưa có đơn nào được tạo và dòng lỗi được báo ngay.</li>
+            <li>Đơn chưa bắt đầu chạy có thể hủy và được hoàn lại tiền.</li>
+            <li>Đơn đã thành công không thể sửa hoặc hủy.</li>
+          </ul>
+        </details>
+      </section>
+
+      <!-- Cột phải: tổng quan và danh sách đơn -->
+      <section class="panel col-right" aria-labelledby="overview-title">
+        <h2 id="overview-title" class="lg">Tổng quan đơn hàng</h2>
+        <p class="sub0">Theo dõi trạng thái và tình hình thanh toán của các đơn hàng.</p>
+        <div class="filters">
+          <input type="search" id="f-q" placeholder="Tìm theo Uid, Tên Game hoặc mã đơn..." aria-label="Tìm theo Uid, Tên Game hoặc mã đơn">
+          <select id="f-status" aria-label="Trạng thái"><option value="">Tất cả trạng thái</option><option value="wait">Đang chạy</option><option value="ok">Thành công</option><option value="cancel">Đã hủy</option><option value="fail">Thất bại</option></select>
+          <select id="f-pay" aria-label="Thanh toán"><option value="">Tất cả thanh toán</option><option value="paid">Đã thanh toán</option><option value="refund">Đã hoàn tiền</option></select>
+          <button class="btn" data-act="refresh">Làm mới</button>
+        </div>
+        <div id="list"><div class="empty">Đang tải đơn hàng...</div></div>
+      </section>
+    </div>
+  </main>
+  <!--include:footer-->
+</div>
+<script src="/js/common.js" defer></script>
+<script src="/js/orders.js" defer></script>
+</body>
+</html>

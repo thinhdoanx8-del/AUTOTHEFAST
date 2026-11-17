@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Đăng ký | Kho Nick</title>
+<meta name="description" content="Đăng ký tài khoản Kho Nick miễn phí để nạp tiền và tạo đơn dịch vụ buff hot Liên Quân.">
+<link rel="canonical" href="{{SITE_URL}}/dang-ky">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0b7a63">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<!--include:header-->
+<div class="wrap">
+  <main id="app">
+    <div class="narrow"><section class="panel">
+      <h1 class="h2">Tạo tài khoản</h1>
+      <div id="msg"></div>
+      <form id="form" data-mode="register" novalidate>
+        <div class="field"><label for="f-user">Tên đăng nhập</label><input id="f-user" autocomplete="username" required maxlength="24"><small>3 đến 24 ký tự: chữ không dấu, số, dấu _ . -</small></div>
+        <div class="field"><label for="f-email">Địa chỉ Gmail</label><input id="f-email" type="email" autocomplete="email" required><div id="email-msg" style="font-size:12px;margin-top:4px;"></div></div>
+        <div class="field"><label for="f-pass">Mật khẩu</label><input id="f-pass" type="password" autocomplete="new-password" required><small>Tối thiểu 6 ký tự.</small></div>
+        <div class="field"><label for="f-pass2">Nhập lại mật khẩu</label><input id="f-pass2" type="password" autocomplete="new-password" required></div>
+        <button class="btn primary" style="width:100%" type="submit" id="btn-submit">Đăng ký</button>
+      </form>
+      <p style="margin:14px 0 0;color:var(--muted)">Đã có tài khoản? <a href="/dang-nhap">Đăng nhập</a></p>
+    </section></div>
+  </main>
+  <!--include:footer-->
+</div>
+<script src="/js/common.js" defer></script>
+<script src="/js/auth.js" defer></script>
+</body>
+</html>

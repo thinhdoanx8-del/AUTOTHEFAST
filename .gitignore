@@ -1,0 +1,19 @@
+# Bí mật: KHÔNG được đưa lên GitHub
+.env
+.env.*
+!.env.example
+
+# Dữ liệu khách hàng, số dư, đơn hàng
+data.json
+data.json.*
+*.bak
+
+# Thư viện (cài lại bằng: npm install)
+node_modules/
+
+# Log và file tạm
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/

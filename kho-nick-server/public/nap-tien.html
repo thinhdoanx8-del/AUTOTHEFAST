@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nạp tiền | Kho Nick</title>
+<meta name="description" content="Nạp tiền vào tài khoản Kho Nick bằng chuyển khoản ngân hàng hoặc ví điện tử.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b7a63">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<!--include:header-->
+<div class="wrap">
+  <main id="app">
+    <div class="pagehead"><div><h1>Nạp tiền</h1><p>Số dư hiện tại: <strong id="bal"></strong></p></div></div>
+
+    <div class="two">
+      <!-- Chọn số tiền -->
+      <section class="panel" aria-labelledby="pick-title">
+        <h2 id="pick-title">Chọn số tiền</h2>
+        <div class="amounts" id="amounts"></div>
+        <div class="field"><label for="custom">Hoặc nhập số khác</label><input id="custom" inputmode="numeric" placeholder="Tối thiểu 10.000" autocomplete="off"></div>
+        <div class="methods" id="methods"></div>
+        <button class="btn primary" id="go" data-act="go" disabled>Tạo yêu cầu nạp</button>
+      </section>
+
+      <!-- Thông tin chuyển khoản -->
+      <section class="panel" aria-labelledby="info-title">
+        <h2 id="info-title">Thông tin chuyển khoản</h2>
+
+        <!-- Khung thông báo PayOS (Sẽ tự động hiển thị khi chọn PayOS) -->
+        <div id="payos-box" style="display: none;" class="note" style="margin-top:10px; background:#eef2ff; color:#3730a3; border-color:#c7d2fe; padding: 16px; border-radius: 8px; line-height: 1.6;">
+          <strong>Cổng thanh toán tự động PayOS:</strong><br>
+          - Hỗ trợ quét mã QR qua ứng dụng của tất cả các ngân hàng.<br>
+          - Tiền sẽ được tự động cộng vào tài khoản của bạn chỉ sau 5–10 giây mà không cần chờ duyệt thủ công.
+        </div>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="hist-title">
+      <h2 id="hist-title">Lịch sử nạp tiền</h2>
+      <div id="hist"></div>
+    </section>
+  </main>
+  <!--include:footer-->
+</div>
+<script src="/js/common.js" defer></script>
+<script src="/js/topup.js" defer></script>
+</body>
+</html>
